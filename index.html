@@ -1,0 +1,553 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candles by Amaira - Design 3: Modern Playful</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --peach: #FFB4A2;
+            --coral: #FF8C7A;
+            --mint: #A8E6CF;
+            --lavender: #D4BDFF;
+            --sunshine: #FFD966;
+            --cloud: #F7F9FC;
+            --charcoal: #2D3142;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--cloud);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Floating shapes */
+        .bg-shape {
+            position: fixed;
+            border-radius: 50%;
+            z-index: 0;
+            animation: float-shapes 20s ease-in-out infinite;
+        }
+
+        .shape1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--mint), transparent);
+            top: 10%;
+            right: 5%;
+            opacity: 0.3;
+        }
+
+        .shape2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--lavender), transparent);
+            bottom: 20%;
+            left: 10%;
+            opacity: 0.4;
+            animation-delay: -5s;
+        }
+
+        .shape3 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, var(--peach), transparent);
+            top: 50%;
+            left: 50%;
+            opacity: 0.3;
+            animation-delay: -10s;
+        }
+
+        @keyframes float-shapes {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 0 50px;
+        }
+
+        .logo {
+            font-family: 'Satisfy', cursive;
+            font-size: 4.5rem;
+            background: linear-gradient(135deg, var(--coral) 0%, var(--lavender) 50%, var(--mint) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            animation: gradient-shift 5s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--coral);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .wave-divider {
+            margin: 40px auto;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 40px 0 80px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(45, 49, 66, 0.1);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            opacity: 0;
+            animation: bounceIn 0.6s ease-out forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 180, 162, 0.1) 0%, transparent 70%);
+            transition: transform 0.6s ease;
+            transform: scale(0);
+        }
+
+        .product-card:hover::before {
+            transform: scale(1);
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(45, 49, 66, 0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--sunshine);
+            color: var(--charcoal);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, var(--peach), var(--lavender));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: '✨';
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+            50% { opacity: 1; transform: translate(20px, -20px) scale(1); }
+        }
+
+        .product-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--coral);
+            margin-bottom: 25px;
+        }
+
+        /* Fragrance Pills */
+        .fragrance-section {
+            background: var(--cloud);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+        }
+
+        .fragrance-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .fragrance-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .fragrance-pill {
+            padding: 10px 18px;
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--charcoal);
+        }
+
+        .fragrance-pill:hover {
+            transform: scale(1.05);
+            background: var(--mint);
+            color: white;
+        }
+
+        .fragrance-pill.selected {
+            background: linear-gradient(135deg, var(--coral), var(--lavender));
+            color: white;
+            border-color: transparent;
+            transform: scale(1.05);
+        }
+
+        .selection-display {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: var(--coral);
+            font-weight: 600;
+            min-height: 20px;
+        }
+
+        /* Order Buttons */
+        .order-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 16px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-email {
+            background: linear-gradient(135deg, var(--coral), var(--lavender));
+            color: white;
+        }
+
+        .btn-email:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 140, 122, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            padding: 50px 0;
+            text-align: center;
+            margin-top: 60px;
+            border-radius: 40px 40px 0 0;
+            box-shadow: 0 -10px 40px rgba(45, 49, 66, 0.05);
+        }
+
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-link {
+            color: var(--coral);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+
+        .footer-link:hover {
+            background: var(--cloud);
+            transform: translateY(-3px);
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(50px);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 3rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .order-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-shape shape1"></div>
+    <div class="bg-shape shape2"></div>
+    <div class="bg-shape shape3"></div>
+
+    <div class="container">
+        <header>
+            <h1 class="logo">Candles by Amaira</h1>
+            <p class="tagline">Handcrafted with Love ♥</p>
+            <div class="wave-divider">〰️</div>
+        </header>
+
+        <div class="products-grid" id="productsGrid"></div>
+
+        <footer>
+            <div class="footer-title">Let's Connect!</div>
+            <div class="footer-links">
+                <a href="https://wa.me/1234567890" class="footer-link" id="footerWhatsApp">📱 WhatsApp Us</a>
+                <a href="mailto:orders@candlesbyamaira.com" class="footer-link" id="footerEmail">✉️ Email Us</a>
+            </div>
+            <p style="color: #999; font-size: 0.85rem; margin-top: 20px;">© 2024 Candles by Amaira · Made with ♥</p>
+        </footer>
+    </div>
+
+    <script>
+        const CONFIG = {
+            whatsappNumber: '1234567890',
+            email: 'orders@candlesbyamaira.com'
+        };
+
+        const fragrances = [
+            { name: 'Lavender', emoji: '💜' },
+            { name: 'Vanilla', emoji: '🤍' },
+            { name: 'Rose', emoji: '🌹' },
+            { name: 'Sandalwood', emoji: '🪵' },
+            { name: 'Jasmine', emoji: '🌸' },
+            { name: 'Cinnamon', emoji: '🍂' },
+            { name: 'Ocean', emoji: '🌊' },
+            { name: 'Eucalyptus', emoji: '🌿' },
+            { name: 'Lemon', emoji: '🍋' },
+            { name: 'Mint', emoji: '🌱' },
+            { name: 'Amber', emoji: '🧡' },
+            { name: 'Cedar', emoji: '🌲' }
+        ];
+
+        const products = [
+            {
+                name: 'Cozy Pillar',
+                price: '$26.99',
+                badge: 'Popular',
+                image: '🕯️',
+                emoji: true
+            },
+            {
+                name: 'Deluxe Jar',
+                price: '$34.99',
+                badge: 'Best Seller',
+                image: '🕯️',
+                emoji: true
+            },
+            {
+                name: 'Mini Travel',
+                price: '$19.99',
+                badge: 'Gift Idea',
+                image: '🕯️',
+                emoji: true
+            },
+            {
+                name: 'Taper Duo',
+                price: '$31.99',
+                badge: 'New',
+                image: '🕯️',
+                emoji: true
+            }
+        ];
+
+        function generateProducts() {
+            const grid = document.getElementById('productsGrid');
+            
+            products.forEach((product, index) => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                
+                const imageContent = product.emoji 
+                    ? product.image 
+                    : `<img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;">`;
+                
+                card.innerHTML = `
+                    <div class="product-badge">${product.badge}</div>
+                    <div class="product-image">${imageContent}</div>
+                    <h3 class="product-name">${product.name}</h3>
+                    <div class="product-price">${product.price}</div>
+                    
+                    <div class="fragrance-section">
+                        <div class="fragrance-title">🌸 Pick Your Scent</div>
+                        <div class="fragrance-pills">
+                            ${fragrances.map(f => `
+                                <button class="fragrance-pill" data-fragrance="${f.name}">
+                                    ${f.emoji} ${f.name}
+                                </button>
+                            `).join('')}
+                        </div>
+                        <div class="selection-display" id="selected-${index}"></div>
+                    </div>
+                    
+                    <div class="order-section">
+                        <a href="#" class="btn btn-whatsapp" id="whatsapp-${index}">
+                            📱 WhatsApp
+                        </a>
+                        <a href="#" class="btn btn-email" id="email-${index}">
+                            ✉️ Email
+                        </a>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+                
+                // Fragrance selection
+                const fragrancePills = card.querySelectorAll('.fragrance-pill');
+                const selectedDisplay = card.querySelector(`#selected-${index}`);
+                const whatsappBtn = card.querySelector(`#whatsapp-${index}`);
+                const emailBtn = card.querySelector(`#email-${index}`);
+                
+                let selectedFragrance = '';
+                
+                fragrancePills.forEach(pill => {
+                    pill.addEventListener('click', function() {
+                        fragrancePills.forEach(p => p.classList.remove('selected'));
+                        this.classList.add('selected');
+                        selectedFragrance = this.dataset.fragrance;
+                        selectedDisplay.textContent = `✨ ${selectedFragrance} chosen!`;
+                        updateOrderLinks();
+                    });
+                });
+                
+                function updateOrderLinks() {
+                    const fragText = selectedFragrance ? ` - ${selectedFragrance} scent` : '';
+                    
+                    const whatsappMessage = encodeURIComponent(
+                        `Hi! 👋 I'd love to order:\n\n${product.name}${fragText}\nPrice: ${product.price}\n\nCan you confirm availability? 🕯️`
+                    );
+                    
+                    const emailSubject = encodeURIComponent(`Order: ${product.name}`);
+                    const emailBody = encodeURIComponent(
+                        `Hello!\n\nI'd like to order:\n\nProduct: ${product.name}${fragText}\nPrice: ${product.price}\n\nPlease let me know about availability and shipping.\n\nThank you! 🕯️`
+                    );
+                    
+                    whatsappBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${whatsappMessage}`;
+                    emailBtn.href = `mailto:${CONFIG.email}?subject=${emailSubject}&body=${emailBody}`;
+                }
+                
+                updateOrderLinks();
+            });
+        }
+
+        document.getElementById('footerWhatsApp').href = `https://wa.me/${CONFIG.whatsappNumber}`;
+        document.getElementById('footerEmail').href = `mailto:${CONFIG.email}`;
+        
+        generateProducts();
+    </script>
+</body>
+</html>
