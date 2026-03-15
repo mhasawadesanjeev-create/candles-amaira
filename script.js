@@ -4,13 +4,15 @@
             { name: 'Rose', emoji: '🌹' },
             { name: 'Sandalwood', emoji: '🪵' },
             { name: 'Jasmine', emoji: '🌸' },
-            { name: 'Cinnamon', emoji: '🍂' },
             { name: 'Ocean', emoji: '🌊' },
             { name: 'Eucalyptus', emoji: '🌿' },
             { name: 'Lemon', emoji: '🍋' },
             { name: 'Mint', emoji: '🌱' },
-            { name: 'Amber', emoji: '🧡' },
-            { name: 'Cedar', emoji: '🌲' }
+            { name: 'Sweet Orange', emoji: '🧡' },
+            { name: 'Strawberry', emoji: '🍓' },
+            { name: 'Chai', emoji: '☕' },
+            { name: 'Champa', emoji: '🌺' },
+            { name: 'Marigold', emoji: '🌼' }
         ];
 
         const products = [
