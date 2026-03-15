@@ -59,9 +59,15 @@
                 emoji: false
             },
             {
-                name: 'Rose',
+                name: 'Peony, my honey!',
                 badge: 'New',
                 image: 'images/Rose.jpeg',
+                emoji: false
+            },
+            {
+                name: 'Lucky Puppy',
+                badge: 'Most Loved',
+                image: 'images/Lucky Puppy.jpeg',
                 emoji: false
             }
         ];
