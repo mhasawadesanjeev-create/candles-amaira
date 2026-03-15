@@ -654,7 +654,7 @@ Whether you're looking for everyday candles to brighten your home, or customized
 
     <script>
         const CONFIG = {
-            whatsappNumber: '17788920987',
+            whatsappNumber: 'MTc3ODg5MjA5ODc=', // Base64 encoded phone number
             email: 'amairamhasawade@gmail.com' 
         };
 
@@ -805,7 +805,7 @@ Whether you're looking for everyday candles to brighten your home, or customized
                         `Hello!\n\nI'd like to order:\n\nProduct: ${product.name}${fragText}\n\nPlease let me know about availability and shipping.\n\nThank you! 🕯️`
                     );
                     
-                    whatsappBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${whatsappMessage}`;
+                    whatsappBtn.href = `https://wa.me/${atob(CONFIG.whatsappNumber)}?text=${whatsappMessage}`;
                     emailBtn.href = `mailto:${CONFIG.email}?subject=${emailSubject}&body=${emailBody}`;
                 }
                 
@@ -813,7 +813,7 @@ Whether you're looking for everyday candles to brighten your home, or customized
             });
         }
 
-        document.getElementById('footerWhatsApp').href = `https://wa.me/${CONFIG.whatsappNumber}`;
+        document.getElementById('footerWhatsApp').href = `https://wa.me/${atob(CONFIG.whatsappNumber)}`;
         document.getElementById('footerEmail').href = `mailto:${CONFIG.email}`;
         
         generateProducts();
