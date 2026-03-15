@@ -51,6 +51,18 @@
                 badge: 'New',
                 image: 'images/Baby Feet.jpeg',
                 emoji: false
+            },
+            {
+                name: 'Crescent Moon',
+                badge: 'New',
+                image: 'images/Crescent Moon.jpeg',
+                emoji: false
+            },
+            {
+                name: 'Rose',
+                badge: 'New',
+                image: 'images/Rose.jpeg',
+                emoji: false
             }
         ];
 
