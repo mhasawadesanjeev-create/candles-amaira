@@ -2,7 +2,7 @@
             { name: 'Lavender', emoji: '💜' },
             { name: 'Vanilla', emoji: '🤍' },
             { name: 'Rose', emoji: '🌹' },
-            { name: 'Sandalwood', emoji: '🪵' },
+            { name: 'Sandalwood', emoji: '🪔' },
             { name: 'Jasmine', emoji: '🌸' },
             { name: 'Ocean', emoji: '🌊' },
             { name: 'Eucalyptus', emoji: '🌿' },
