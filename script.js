@@ -123,20 +123,29 @@
                 const whatsappBtn = card.querySelector(`#whatsapp-${index}`);
                 const emailBtn = card.querySelector(`#email-${index}`);
 
-                let selectedFragrance = '';
+                let selectedFragrances = [];
 
                 fragrancePills.forEach(pill => {
                     pill.addEventListener('click', function() {
-                        fragrancePills.forEach(p => p.classList.remove('selected'));
-                        this.classList.add('selected');
-                        selectedFragrance = this.dataset.fragrance;
-                        selectedDisplay.textContent = `✨ ${selectedFragrance} chosen!`;
+                        if (this.classList.contains('selected')) {
+                            this.classList.remove('selected');
+                        } else {
+                            this.classList.add('selected');
+                        }
+                        selectedFragrances = Array.from(fragrancePills)
+                            .filter(p => p.classList.contains('selected'))
+                            .map(p => p.dataset.fragrance);
+                        selectedDisplay.textContent = selectedFragrances.length > 0 
+                            ? `✨ ${selectedFragrances.join(', ')} chosen!` 
+                            : '';
                         updateOrderLinks();
                     });
                 });
 
                 function updateOrderLinks() {
-                    const fragText = selectedFragrance ? ` - ${selectedFragrance} scent` : '';
+                    const fragText = selectedFragrances.length > 0 
+                        ? ` - ${selectedFragrances.join(', ')} scents` 
+                        : '';
 
                     const whatsappMessage = encodeURIComponent(
                         `Hi! 👋 I'd love to order:\n\n${product.name}${fragText}\n\nCan you confirm availability? 🕯️`
