@@ -1,9 +1,9 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candles by Amaira - Design 3: Modern Playful</title>
+    <title>Candles by Amaira - Handcrafted with Love</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Satisfy&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -84,7 +84,7 @@
         /* Header */
         header {
             text-align: center;
-            padding: 60px 0 50px;
+            padding: 60px 0 30px;
         }
 
         .logo {
@@ -109,12 +109,159 @@
             color: var(--coral);
             font-weight: 600;
             letter-spacing: 1px;
+            margin-bottom: 40px;
         }
 
-        .wave-divider {
-            margin: 40px auto;
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .tab-btn {
+            padding: 14px 32px;
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(45, 49, 66, 0.1);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--coral), var(--lavender));
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 140, 122, 0.3);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* About Us Section */
+        .about-section {
+            background: white;
+            border-radius: 30px;
+            padding: 60px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 40px rgba(45, 49, 66, 0.1);
+        }
+
+        .about-header {
             text-align: center;
-            font-size: 2rem;
+            margin-bottom: 50px;
+        }
+
+        .about-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--coral), var(--lavender));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .about-subtitle {
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #4a4a4a;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--peach), var(--lavender));
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: var(--cloud);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(45, 49, 66, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
         }
 
         /* Products Grid */
@@ -374,9 +521,27 @@
             }
         }
 
+        @media (max-width: 968px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-section {
+                padding: 40px 30px;
+            }
+        }
+
         @media (max-width: 768px) {
             .logo {
                 font-size: 3rem;
+            }
+
+            .about-title {
+                font-size: 2rem;
             }
 
             .products-grid {
@@ -385,6 +550,15 @@
 
             .order-section {
                 grid-template-columns: 1fr;
+            }
+
+            .about-section {
+                padding: 30px 20px;
+            }
+
+            .about-image {
+                height: 300px;
+                font-size: 6rem;
             }
         }
     </style>
@@ -398,16 +572,81 @@
         <header>
             <h1 class="logo">Candles by Amaira</h1>
             <p class="tagline">Handcrafted with Love ♥</p>
-            <div class="wave-divider">〰️</div>
         </header>
 
-        <div class="products-grid" id="productsGrid"></div>
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('shop')">🕯️ Shop</button>
+            <button class="tab-btn" onclick="switchTab('about')">✨ About Us</button>
+        </nav>
+
+        <!-- Shop Tab Content -->
+        <div id="shop-tab" class="tab-content active">
+            <div class="products-grid" id="productsGrid"></div>
+        </div>
+
+        <!-- About Us Tab Content -->
+        <div id="about-tab" class="tab-content">
+            <div class="about-section">
+                <div class="about-header">
+                    <h2 class="about-title">Our Story</h2>
+                    <p class="about-subtitle">
+                        Bringing Elegance and Glow to Your Heart
+                    </p>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            Welcome to Candles by Amaira – where a mother's creativity meets a daughter's wonder, creating magic one candle at a time.
+                        </p>
+                        <p>
+                            Our journey began in our home kitchen, with 5-year-old Amaira as my enthusiastic little assistant. What started as a creative project has blossomed into a labor of love that we share with you. Every candle tells our story – of giggles during the pouring process, careful fragrance selections, and the pure joy of creating something beautiful together.
+                        </p>
+                        <p>
+                            We believe in keeping things natural and simple. That's why we use only premium soy wax and beeswax, blended with pure essential oils to create fragrances that are as safe as they are delightful. No synthetic chemicals, no artificial colors – just honest, handcrafted candles made with ingredients we trust in our own home.
+Whether you're looking for everyday candles to brighten your home, or customized designs for birthdays, pujas, weddings, and special celebrations, we're here to bring your vision to life. We welcome bulk orders for events and parties, and offer a variety of products at different price points to suit every budget – because everyone deserves the warmth of a beautiful, natural candle.
+                        </p>
+                        <p>
+                            Each candle is hand-poured with love. From our family to yours, we hope our candles bring warmth, comfort, and a little bit of magic to your special moments
+                        </p>
+                    </div>
+                    <div class="about-image">
+                        🕯️✨
+                    </div>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🌿</div>
+                        <h3 class="feature-title">Natural Ingredients</h3>
+                        <p class="feature-desc">
+                            Made with premium soy wax, beeswax, and pure essential oils – no harmful chemicals or artificial fragrances
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">✋</div>
+                        <h3 class="feature-title">Handcrafted</h3>
+                        <p class="feature-desc">
+                            Lovingly handmade in our home with help from our 5-year-old candle enthusiast, Amaira
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3 class="feature-title">Custom Scents</h3>
+                        <p class="feature-desc">
+                            Choose from our curated collection of fragrances to create your perfect atmosphere.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <footer>
             <div class="footer-title">Let's Connect!</div>
             <div class="footer-links">
-                <a href="https://wa.me/1234567890" class="footer-link" id="footerWhatsApp">📱 WhatsApp Us</a>
-                <a href="mailto:orders@candlesbyamaira.com" class="footer-link" id="footerEmail">✉️ Email Us</a>
+                <a href="https://wa.me/+17788970987" class="footer-link" id="footerWhatsApp">📱 WhatsApp Us</a>
+                <a href="mailto:amairamhasawade@gmail.com" class="footer-link" id="footerEmail">✉️ Email Us</a>
             </div>
             <p style="color: #999; font-size: 0.85rem; margin-top: 20px;">© 2024 Candles by Amaira · Made with ♥</p>
         </footer>
@@ -415,8 +654,8 @@
 
     <script>
         const CONFIG = {
-            whatsappNumber: '1234567890',
-            email: 'orders@candlesbyamaira.com'
+            whatsappNumber: '+1 7788970987',
+            email: 'amairamhasawade@gmail.com' 
         };
 
         const fragrances = [
@@ -465,6 +704,28 @@
             }
         ];
 
+        // Tab Switching
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName + '-tab').classList.add('active');
+            
+            // Add active to clicked button
+            event.target.classList.add('active');
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         function generateProducts() {
             const grid = document.getElementById('productsGrid');
             
@@ -480,7 +741,7 @@
                     <div class="product-badge">${product.badge}</div>
                     <div class="product-image">${imageContent}</div>
                     <h3 class="product-name">${product.name}</h3>
-                    <div class="product-price">${product.price}</div>
+                    <!--<div class="product-price">${product.price}</div>-->
                     
                     <div class="fragrance-section">
                         <div class="fragrance-title">🌸 Pick Your Scent</div>
